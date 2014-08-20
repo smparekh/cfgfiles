@@ -1,0 +1,81 @@
+background yes
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 0.5
+total_run_times 0
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 100 1000
+maximum_width 160
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color gray
+default_shade_color red
+default_outline_color green
+alignment top_right
+gap_x 10
+gap_y 10
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer right
+text_buffer_size 256
+temperature_unit fahrenheit 
+
+TEXT
+
+${font Arial:size=20}${color Tan1}GNU${color DarkSlateGray}/${color White}Linux
+
+${voffset -115}
+${color DimGray}
+${font}
+${font Arial:bold:size=10}${color White}SYSTEM ${color DarkSlateGray} ${hr 2}
+$font${color DimGray}$nodename $alignr $machine
+AMD FX-6350 $alignr${freq_g cpu1}Ghz
+Uptime $alignr${uptime}
+File System $alignr${fs_type}
+
+${font Arial:bold:size=10}${color White}PROCESSORS ${color DarkSlateGray}${hr 2}
+$font${color DimGray}CPU0  ${cpu cpu1}% ${cpubar cpu1}
+CPU1  ${cpu cpu2}% ${cpubar cpu2}
+CPU2  ${cpu cpu3}% ${cpubar cpu3}
+CPU3  ${cpu cpu4}% ${cpubar cpu4}
+CPU4  ${cpu cpu5}% ${cpubar cpu5}
+CPU5  ${cpu cpu6}% ${cpubar cpu6}
+
+${font Arial:bold:size=10}${color White}MEMORY ${color DarkSlateGray}${hr 2}
+$font${color DimGray}MEM $alignc $mem / $memmax $alignr $memperc%
+$membar
+
+${font Arial:bold:size=10}${color White}HDD ${color DarkSlateGray}${hr 2}
+$font${color DimGray}/ $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_free_perc /home}%
+${fs_bar /home}
+#/root $alignc ${fs_used /root} / ${fs_size /root} $alignr ${fs_free_perc /root}%
+#${fs_bar /root}
+#${font Arial:bold:size=10}${color White}TOP PROCESSES ${color DarkSlateGray}${hr 2}
+#${color DimGray}$font${top name 1}${alignr}${top mem 1} %
+#$font${top name 2}${alignr}${top mem 2} %
+#$font${top name 3}${alignr}${top mem 3} %
+#$font${top name 4}${alignr}${top mem 4} %
+
+${font Arial:bold:size=10}${color White}NETWORK ${color DarkSlateGray}${hr 2}
+$font${color DimGray}IP on eth0 $alignr ${addr eth0}
+
+Down $alignr ${downspeed eth0}/s
+Up $alignr ${upspeed eth0}/s
+
+Downloaded: $alignr  ${totaldown eth0}
+Uploaded: $alignr  ${totalup eth0}
+
+${font Arial:bold:size=10}${color White}TIME ${color DarkSlateGray}${hr 2}
+${color Ivory}${font Ubuntu:bold:size=20}${alignc}${time %I:%M %p}
+${voffset -10}${color Ivory}${font Ubuntu:size=10}${alignc}${time %a %b %d, %Y}
+${font Ubuntu Mono}${execpi 3600 cal | sed 's/\x5f\x08//g'}
